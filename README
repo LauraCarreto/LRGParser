@@ -1,0 +1,38 @@
+LRGparser.py
+
+A set of tools to parse an LRG file and produce a bed file of the exonic sequences, a csv file of the annotation for the gene and any sequence differences between GRCh37 and GRCh38.
+
+For more details about file formats have a look at our wiki, or our example output files.
+
+Created: 14 December 2016
+
+Developed and tested on python versions 3.5.2 and 2.7.8, in a Linux/Unix environment.
+This script will run with python versions 3.5 and 2.7.
+
+In order to force the script to run with another verion of python 3 please change lines 58, 171 and 429 to Python 3.X (X being your version)
+for alternative Python 2 versions please change lines 75, 161 and 429 to 2.X (X again being your version)
+WARNING- you will be running the script on an untested version of Python and we cannot guarentee that it will work.
+
+@authors: Laura Carreto, Rosie Coates-Brown
+
+Please contact us for help and requests; we'll do what we can however this script is no longer under active development.
+
+Usage: python LRGparser.py -g [LRG file name] -d [True/False] -a [True/False] -s [file/url] -p [path to working directory]
+
+Required parameters:
+-g, --gene    [name of LRG file without .xml suffix]
+
+Optional parameters:
+-h, --help shows this message and quits
+-d, --diff, --difference = [True/False] triggers or suppresses the output of [LRG]_diffs.csv
+-a, --annot, --annotations = [True/False] triggers or suppresses [LRG]_annotation.csv
+-s, --source = [url/file] default is from file. Adding -s url will trigger LRGparser.py to grab the xml from http://ftp.ebi.ac.uk/pub/databases/lrgex 
+-p, --path =  defaults to cwd if no path is supplied. Path to your locally downloaded LRG files and list_LRGs_GRCh38.txt file. This can be downloaded from http://ftp.ebi.ac.uk/pub/databases/lrgex/list_LRGs_GRCh38.txt
+
+NB if you are using locally saved LRG files and list_LRGs_GRCh38.txt these must be in the same location.
+
+Output:
+[LRG]_t1.bed: a tab separated bed file containing the chromosome number, exon start position, exon end position.
+[LRG]_diffs.csv: a csv file containing the differences between 37 and 38; -d False will suppress this.
+[LRG]_annotation.csv: a csv file of gene information including synonyms, lsdb, long gene name; -i False will suppress this.
+

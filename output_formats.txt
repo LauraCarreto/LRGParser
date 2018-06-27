@@ -1,0 +1,32 @@
+examples of the files produced by this script can be found in the "examples files"
+
+1-Print to file  genomic coordinates of exons BED format; one BED file per transcript.
+
+BED file content:
+
+Chr		genomic_Start		genomic_End
+
+2- OPTIONAL: Print to file (csv format) differences between the main assembly (GRCh38) and previous assembly (GRCh37). Inform user if there are no differences and do not generate an empty differences file if this is the case.
+
+Column headers (meaning):
+
+position (exon number or intronic)
+type (mismatch, lrg_ins, lrg_del, other_ins, other_del)
+lrg_start (LRG coordinate)
+lrg_end (LRG coordinate)
+other_start (genomic coordinate)
+other_end (genomic coordinate)
+LRG_seq (nucleotide sequence)
+other_seq (nucleotide sequence)
+
+3- OPTIONAL: print to file (csv format) annotations for this gene, including overlaping genes and respective synonyms.
+
+Column headers:
+
+NCBI_ID
+HGNC_symbol
+LRG_start
+LRG_end
+Strand
+Description
+Synonyms
